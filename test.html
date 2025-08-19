@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acme Solutions — Enterprise Services</title>
+  <meta name="description" content="Acme Solutions provides modern enterprise services — from strategy to implementation. Get a free consultation today." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph for rich previews -->
+  <meta property="og:title" content="Acme Solutions — Enterprise Services" />
+  <meta property="og:description" content="Modern services for growing businesses. Get a free consultation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+
+  <style>
+    :root {
+      --bg: #0f172a;         /* slate-900 */
+      --bg-soft: #111827;    /* gray-900 */
+      --card: #0b1220;       /* dark card */
+      --text: #e5e7eb;       /* gray-200 */
+      --muted: #9ca3af;      /* gray-400 */
+      --brand: #22d3ee;      /* cyan-400 */
+      --brand-2: #14b8a6;    /* teal-500 */
+      --accent: #a78bfa;     /* violet-400 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 1.25rem;
+      --radius-2xl: 1.75rem;
+      --maxw: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(34,211,238,.08), transparent 60%),
+                  radial-gradient(900px 500px at 100% 10%, rgba(167,139,250,.09), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: min(100% - 2rem, var(--maxw)); margin-inline: auto; }
+
+    /* Navbar */
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(15,23,42,.6);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
+    .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; letter-spacing: .2px; }
+    .brand-badge { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: var(--shadow); }
+    .brand-badge svg { width: 18px; height: 18px; color: #0b1020; }
+
+    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links a { color: var(--text); opacity: .85; font-weight: 500; }
+
+    .cta { display: inline-block; padding: .7rem 1rem; border-radius: 999px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #06101a; font-weight: 700; box-shadow: var(--shadow); border: none; cursor: pointer; }
+    .cta:hover { transform: translateY(-1px); }
+
+    /* Hero */
+    .hero { padding: 6rem 0 4rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; }
+    .kicker { color: var(--brand); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+    .headline { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: .6rem 0 1rem; font-weight: 800; }
+    .subhead { color: var(--muted); font-size: 1.05rem; max-width: 55ch; }
+
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius-2xl); padding: 1.25rem; box-shadow: var(--shadow); }
+    .hero-card h3 { margin: .2rem 0 .6rem; }
+    .hero-form { display: grid; gap: .75rem; }
+    .input { width: 100%; padding: .85rem 1rem; border-radius: .9rem; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: var(--text); }
+    .input::placeholder { color: #9aa4b2; }
+
+    /* Sections */
+    section { padding: 4rem 0; }
+    .section-title { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 .75rem; }
+    .muted { color: var(--muted); }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius-xl); padding: 1.25rem; box-shadow: var(--shadow); }
+    .card h3 { margin-top: .4rem; margin-bottom: .35rem; }
+    .badge { display: inline-flex; align-items: center; gap: .35rem; background: rgba(34,211,238,.12); color: var(--brand); border: 1px solid rgba(34,211,238,.25); padding: .3rem .6rem; font-size: .78rem; border-radius: 999px; }
+
+    /* Testimonials */
+    .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .quote { font-style: italic; color: #cbd5e1; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--accent)); display: inline-block; margin-right: .6rem; }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .price { font-size: 2rem; font-weight: 800; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 2rem 0; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .features, .testimonials, .pricing, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: inline-flex; }
+    }
+    .mobile-toggle { display: none; align-items: center; gap: .4rem; padding: .5rem .75rem; border: 1px solid rgba(255,255,255,.15); border-radius: .8rem; background: rgba(255,255,255,.04); color: var(--text); }
+    .mobile-menu { display: none; padding: .75rem; background: rgba(15,23,42,.9); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mobile-menu a { display: block; padding: .6rem .5rem; color: var(--text); }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l3.5 6.5L22 10l-6 4.5L17 22l-5-3-5 3 1-7.5L2 10l6.5-1.5L12 2z"/>
+          </svg>
+        </span>
+        <span>Acme Solutions</span>
+      </a>
+      <div class="nav-links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get a Quote</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    </div>
+    <div class="mobile-menu container" id="mobileMenu" role="dialog" aria-label="Mobile Menu">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <p class="kicker">Enterprise-grade results</p>
+        <h1 class="headline">We help businesses ship faster with modern web solutions.</h1>
+        <p class="subhead">From strategy and UX to development and ongoing support — our team delivers secure, performant, and accessible experiences your customers will love.</p>
+        <div style="margin-top:1.25rem; display:flex; gap:.6rem; flex-wrap: wrap;">
+          <a class="cta" href="#contact">Book a Free Consultation</a>
+          <a class="cta" href="#services" style="background: linear-gradient(135deg, var(--accent), var(--brand));">See Services</a>
+        </div>
+        <p class="muted" style="margin-top:.8rem;">⏱ Typical kickoff in 3–5 days • 🔒 ISO‑friendly processes • ⚡ Lighthouse 90+ targets</p>
+      </div>
+      <aside class="hero-card" aria-label="Quick Quote">
+        <h3>Get a quick estimate</h3>
+        <form class="hero-form" id="quoteForm">
+          <label>
+            <span class="muted">Your name</span>
+            <input class="input" type="text" name="name" placeholder="Jane Doe" required />
+          </label>
+          <label>
+            <span class="muted">Work email</span>
+            <input class="input" type="email" name="email" placeholder="jane@company.com" required />
+          </label>
+          <label>
+            <span class="muted">Project type</span>
+            <select class="input" name="type" required>
+              <option value="Website redesign">Website redesign</option>
+              <option value="New marketing site">New marketing site</option>
+              <option value="Web app / dashboard">Web app / dashboard</option>
+              <option value="E‑commerce">E‑commerce</option>
+            </select>
+          </label>
+          <button class="cta" type="submit">Get Estimate</button>
+          <p class="muted" id="quoteMsg" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="muted">Everything you need to plan, build, and grow.</p>
+      <div class="features" style="margin-top:1rem">
+        <article class="card">
+          <span class="badge">🔍 Strategy</span>
+          <h3>Discovery & Roadmapping</h3>
+          <p>Workshops, user research, and clear milestones to de‑risk delivery and align teams.</p>
+        </article>
+        <article class="card">
+          <span class="badge">🎨 Design</span>
+          <h3>UX/UI & Prototyping</h3>
+          <p>Accessible, responsive interfaces with design systems for consistency and speed.</p>
+        </article>
+        <article class="card">
+          <span class="badge">🧩 Build</span>
+          <h3>Web Development</h3>
+          <p>Modern stacks (HTML/CSS/JS) with best practices: SEO, performance, and security.</p>
+        </article>
+        <article class="card">
+          <span class="badge">⚡ Performance</span>
+          <h3>Optimization</h3>
+          <p>Core Web Vitals, caching, image optimization, and CI for reliable shipping.</p>
+        </article>
+        <article class="card">
+          <span class="badge">🛡️ Security</span>
+          <h3>Audits & Hardening</h3>
+          <p>HTTPS, headers, access controls, and regular checks to keep data safe.</p>
+        </article>
+        <article class="card">
+          <span class="badge">🔁 Care</span>
+          <h3>Maintenance & Support</h3>
+          <p>Monitoring, updates, and a friendly team to keep everything running smoothly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="muted">We’re a small, senior team with enterprise habits: code reviews, documentation, and measurable outcomes.</p>
+      <div class="card" style="margin-top:1rem">
+        <ul>
+          <li>✅ 50+ projects delivered across fintech, retail, and SaaS</li>
+          <li>✅ Accessibility-first (WCAG 2.2 AA)</li>
+          <li>✅ Performance budget baked into every sprint</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">What clients say</h2>
+      <div class="testimonials" style="margin-top:1rem">
+        <figure class="card">
+          <blockquote class="quote">“Acme helped us cut load time by 60% and conversions jumped immediately.”</blockquote>
+          <figcaption style="margin-top:.8rem"><span class="avatar"></span><strong>Samir K.</strong> — Growth Lead, RetailCo</figcaption>
+        </figure>
+        <figure class="card">
+          <blockquote class="quote">“Clear communication, zero surprises. Best vendor experience we’ve had.”</blockquote>
+          <figcaption style="margin-top:.8rem"><span class="avatar"></span><strong>Jane D.</strong> — VP Product, FintechX</figcaption>
+        </figure>
+        <figure class="card">
+          <blockquote class="quote">“They shipped on time with Lighthouse scores in the 90s across the board.”</blockquote>
+          <figcaption style="margin-top:.8rem"><span class="avatar"></span><strong>Omar A.</strong> — CTO, SaaSify</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple pricing</h2>
+      <p class="muted">Transparent, flexible plans. Custom quotes available.</p>
+      <div class="pricing" style="margin-top:1rem">
+        <div class="card">
+          <h3>Starter</h3>
+          <p class="price">$1,500</p>
+          <p class="muted">Single-page site, custom design, 1 week delivery.</p>
+          <button class="cta" onclick="scrollToContact()">Choose Starter</button>
+        </div>
+        <div class="card" style="outline: 2px solid rgba(167,139,250,.35)">
+          <h3>Growth</h3>
+          <p class="price">$4,900</p>
+          <p class="muted">Multi‑page site, CMS ready, analytics, 3–4 weeks.</p>
+          <button class="cta" onclick="scrollToContact()">Choose Growth</button>
+        </div>
+        <div class="card">
+          <h3>Enterprise</h3>
+          <p class="price">Custom</p>
+          <p class="muted">SAML/SSO, compliance, integrations, dedicated squad.</p>
+          <button class="cta" onclick="scrollToContact()">Talk to Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact us</h2>
+      <p class="muted">Tell us a bit about your project. We’ll reply within 1 business day.</p>
+      <div class="contact-grid" style="margin-top:1rem">
+        <form class="card" id="contactForm">
+          <label>
+            <span class="muted">Full name</span>
+            <input class="input" type="text" name="fullName" placeholder="John Smith" required />
+          </label>
+          <label>
+            <span class="muted">Email</span>
+            <input class="input" type="email" name="email" placeholder="john@company.com" required />
+          </label>
+          <label>
+            <span class="muted">Company</span>
+            <input class="input" type="text" name="company" placeholder="Company Inc." />
+          </label>
+          <label>
+            <span class="muted">Budget (USD)</span>
+            <select class="input" name="budget">
+              <option value="< 2k">< 2k</option>
+              <option value="2k – 5k">2k – 5k</option>
+              <option value="5k – 10k">5k – 10k</option>
+              <option value="> 10k">> 10k</option>
+            </select>
+          </label>
+          <label>
+            <span class="muted">Message</span>
+            <textarea class="input" name="message" rows="5" placeholder="Tell us about your goals…" required></textarea>
+          </label>
+          <button class="cta" type="submit">Send Message</button>
+          <p class="muted" id="contactMsg" role="status" aria-live="polite"></p>
+        </form>
+        <aside class="card">
+          <h3>Office</h3>
+          <p>123 Business Ave, Suite 400<br>Metropolis, NY 10001</p>
+          <p><strong>Email:</strong> hello@acme.co<br><strong>Phone:</strong> +1 (555) 555‑0123</p>
+          <h3 style="margin-top:1rem">Hours</h3>
+          <p>Mon–Fri, 9:00–18:00</p>
+          <h3 style="margin-top:1rem">Follow</h3>
+          <p><a href="#">LinkedIn</a> · <a href="#">Twitter</a> · <a href="#">Instagram</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Acme Solutions. All rights reserved.</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Security</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle?.addEventListener('click', () => {
+      const open = menu.style.display === 'block';
+      menu.style.display = open ? 'none' : 'block';
+      toggle.setAttribute('aria-expanded', String(!open));
+    });
+
+    // Smooth scroll helper used by pricing buttons
+    function scrollToContact() {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Quote form (demo-only)
+    document.getElementById('quoteForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('quoteMsg');
+      msg.textContent = 'Thanks! We\'ll email you a ballpark estimate shortly.';
+    });
+
+    // Contact form (demo-only)
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('contactMsg');
+      msg.textContent = 'Message sent (demo). Replace with your backend or form service.';
+    });
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

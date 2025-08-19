@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Reviews - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo" data-page="home">CompanyReviews</a>
+            <ul class="nav-links">
+                <li><a href="#" data-page="home">Home</a></li>
+                <li><a href="#" data-page="reviews">Reviews</a></li>
+                <li><a href="#" data-page="about">About</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-secondary" id="login-btn" data-page="login">Login</a>
+                <a href="#" class="btn btn-primary" id="register-btn" data-page="register">Register</a>
+            </div>
+            <div id="user-menu" class="hidden">
+                <a href="#" class="btn btn-secondary" data-page="dashboard">Dashboard</a>
+                <button id="logout-btn" class="btn btn-primary">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <div id="home-page" class="page">
+            <section class="hero">
+                <h1>Share Your Experience</h1>
+                <p>Join our community and help others discover the best services</p>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-primary" data-page="register">Get Started</a>
+                    <a href="#" class="btn btn-secondary" data-page="reviews">Read Reviews</a>
+                </div>
+            </section>
+
+            <section class="reviews-section">
+                <h2 class="section-title">Recent Reviews</h2>
+                <div id="reviews-container" class="reviews-grid">
+                    <div class="loading">Loading reviews...</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Other pages will be added here -->
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
